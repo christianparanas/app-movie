@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Squeeze as Hamburger } from 'hamburger-react'
 
-import ThemeToggle from './themeToggle'
+import ThemeToggle from './themetoggle'
 
 function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false)
@@ -10,7 +10,7 @@ function Header() {
     <div>
       <div className="flex justify-between items-center py-2 px-4 bg-slate-900 text-white">
         <div className="">MovieMe</div>
-        <div className="grid grid-cols-2 gap-1 items-center">
+        <div className="grid grid-cols-2 gap-2 items-center">
           <ThemeToggle />
           <Hamburger toggled={isNavOpen} toggle={setIsNavOpen} />
         </div>

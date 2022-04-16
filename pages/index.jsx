@@ -1,6 +1,8 @@
 
 import { getMovies } from "../lib/tmdb";
 import Page from "../components/page";
+import MediaCard from "components/mediacard";
+import MovieList from "components/movieList";
 
 
 export default function Home() {
@@ -12,7 +14,8 @@ export default function Home() {
 
   return (
     <Page>
-      hey
+      <MediaCard />
+      <MovieList />
     </Page>
   );
 }
