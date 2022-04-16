@@ -6,3 +6,9 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+@layer components {
+  body {
+    @apply bg-slate-800;
+  }
+}
+
