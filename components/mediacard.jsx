@@ -6,8 +6,8 @@ function MediaCard({ result }) {
   return (
     <div className="">
       <img
-        className="w-full rounded-md"
-        src={`${TMDB_IMG_BASE_URL}${result.backdrop_path}`}
+        className="w-full rounded-md shadow-lg"
+        src={`${TMDB_IMG_BASE_URL}${result.poster_path}`}
       />
     </div>
   );

@@ -1,20 +1,19 @@
-import React from 'react'
+import React from "react";
+import FadeIn from "react-fade-in";
 
-import Header from './header'
+import Header from "./header";
 
 function Page({ children }) {
   return (
     <div>
       <Header />
 
-      <div className="">
-        <div className="">
-          {children}
-        </div>
+      <FadeIn>
+        <div className="">{children}</div>
         <div className="footer"></div>
-      </div>
+      </FadeIn>
     </div>
-  )
+  );
 }
 
-export default Page
+export default Page;
