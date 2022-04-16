@@ -1,7 +1,11 @@
 import { useState, Fragment } from "react";
 import { TabPanel, useTabs } from "react-headless-tabs";
 
-import { getMovies } from "../lib/tmdb";
+import {
+  getUpcomingMovies,
+  getPopularMovies,
+  getTopRatedMovies,
+} from "../lib/tmdb";
 import MediaCard from "./mediacard";
 import TabSelector from "./TabSelector";
 
@@ -12,11 +16,12 @@ function MovieList() {
     "rated",
   ]);
 
-  const { data, isLoading, isError } = getMovies();
-
-  if (isError) return <h1>Something went wrong!</h1>;
-  if (isLoading) return <p>Loading hehe</p>;
-  if (data) console.log(data);
+  const { upcomingMoviesData, upcomingMoviesIsLoading, upcomingMoviesIsError } =
+    getUpcomingMovies();
+  const { popularMoviesData, popularMoviesIsLoading, popularMoviesIsError } =
+    getPopularMovies();
+  const { topRatedMoviesData, topRatedMoviesIsLoading, topRatedMoviesIsError } =
+    getTopRatedMovies();
 
   return (
     <div className="p-4 mt-6 md:w-10/12 mx-auto">
@@ -46,18 +51,41 @@ function MovieList() {
       <div className="">
         <TabPanel hidden={selectedTab !== "upcoming"}>
           <div className="relative p4 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-            {data.results.slice(0, 12).map((result, key) => {
-              return (
-                <Fragment key={key}>
-                  <MediaCard result={result} />
-                </Fragment>
-              );
-            })}
+            {upcomingMoviesData &&
+              upcomingMoviesData.results.slice(0, 12).map((media, key) => {
+                return (
+                  <Fragment key={key}>
+                    <MediaCard media={media} />
+                  </Fragment>
+                );
+              })}
           </div>
         </TabPanel>
 
-        <TabPanel hidden={selectedTab !== "popular"}>MOST POPULAR</TabPanel>
-        <TabPanel hidden={selectedTab !== "rated"}>TOP RATED</TabPanel>
+        <TabPanel hidden={selectedTab !== "popular"}>
+          <div className="relative p4 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+            {popularMoviesData &&
+              popularMoviesData.results.slice(0, 12).map((media, key) => {
+                return (
+                  <Fragment key={key}>
+                    <MediaCard media={media} />
+                  </Fragment>
+                );
+              })}
+          </div>
+        </TabPanel>
+        <TabPanel hidden={selectedTab !== "rated"}>
+          <div className="relative p4 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+            {topRatedMoviesData &&
+              topRatedMoviesData.results.slice(0, 12).map((media, key) => {
+                return (
+                  <Fragment key={key}>
+                    <MediaCard media={media} />
+                  </Fragment>
+                );
+              })}
+          </div>
+        </TabPanel>
       </div>
     </div>
   );
