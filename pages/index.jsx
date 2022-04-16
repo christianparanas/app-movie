@@ -1,8 +1,8 @@
 
 import { getMovies } from "../lib/tmdb";
 import Page from "../components/page";
-import MediaCard from "../components/mediaCard";
-import MovieList from "../components/movieList";
+import MediaCard from "../components/mediacard";
+import MovieList from "../components/movielist";
 
 
 export default function Home() {
