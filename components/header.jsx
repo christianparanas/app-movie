@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Link from 'next/link'
 import { Squeeze as Hamburger } from "hamburger-react";
 
-import ThemeToggle from "./themeToggle";
+import ThemeToggle from "./ThemeToggle";
 
 function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);

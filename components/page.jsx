@@ -1,7 +1,7 @@
 import React from "react";
 import FadeIn from "react-fade-in";
 
-import Header from "./header";
+import { Header } from "components";
 
 function Page({ children }) {
   return (

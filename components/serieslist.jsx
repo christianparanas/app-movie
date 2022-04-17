@@ -7,8 +7,8 @@ import {
   getPopularTVSeries,
   getTopRatedTVSeries,
 } from "lib/tmdb";
-import MediaCard from "./mediacard";
-import TabSelector from "./TabSelector";
+import { MediaCard, TabSelector } from "components";
+
 
 function SeriesList() {
   const [selectedTab, setSelectedTab] = useTabs(["latest", "popular", "rated"]);
@@ -25,11 +25,9 @@ function SeriesList() {
   if (airingTodayTVSeriesData) console.log(airingTodayTVSeriesData);
 
   return (
-    <div className="p-4 mt-10 md:mt-20 md:w-10/12 mx-auto min-h-fit lg:h-[1000px]">
+    <div className="p-4 mt-10 mx-auto min-h-fit h-p[2159px] md:mt-20 md:w-10/12 lg:h-[1000px]">
       <h1 className="mr-4 mb-10 text-xl lg:text-3xl font-extrabold sm:text-5xl">
-        <span className="text-[#7B7B8F]">
-          TV SERIES
-        </span>
+        <span className="text-[#7B7B8F]">TV SERIES</span>
       </h1>
 
       <div className="flex border-b border-slate-800 pb-4 mt-4 mb-6 text-sm overflow-x-scroll sm:overflow-hidden">
@@ -53,7 +51,7 @@ function SeriesList() {
         </TabSelector>
       </div>
 
-      <div className="min-h-fit h-fit">
+      <div className="min-h-fit h-[1814px] lg:h-[716px]">
         <TabPanel hidden={selectedTab !== "latest"}>
           <div className="relative grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {airingTodayTVSeriesData &&

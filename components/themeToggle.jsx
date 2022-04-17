@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-import Image from "next/image";
+import { useState } from "react";
 
-import SunIcon from "./graphics/SunIcon";
-import MoonIcon from "./graphics/MoonIcon";
+import { SunIcon, MoonIcon } from "components/graphics";
 
 function ThemeToggle() {
   const [isDarkMode, setIsDarkMode] = useState(false);

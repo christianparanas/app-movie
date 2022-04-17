@@ -7,7 +7,7 @@ import {
   getPopularMovies,
   getTopRatedMovies,
 } from "../lib/tmdb";
-import MediaCard from "./mediacard";
+import MediaCard from "./MediaCard";
 import TabSelector from "./TabSelector";
 
 function MovieList() {
@@ -25,7 +25,7 @@ function MovieList() {
     return <div className="">Something went wrong</div>;
 
   return (
-    <div className="p-4 mt-10 md:mt-20 md:w-10/12 mx-auto min-h-fit lg:h-[1000px]">
+    <div className="p-4 mt-10 mx-auto min-h-fit h-[2159px] md:mt-20 md:w-10/12 lg:h-[1000px]">
       <h1 className="mr-4 mb-10 text-xl lg:text-3xl font-extrabold sm:text-5xl">
         <span className="text-[#7B7B8F]">
           MOVIES
@@ -53,7 +53,7 @@ function MovieList() {
         </TabSelector>
       </div>
 
-      <div className="min-h-fit h-fit">
+      <div className="min-h-fit h-[1814px] lg:h-[716px]">
         <TabPanel hidden={selectedTab !== "upcoming"}>
           <div className="relative grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
             {upcomingMoviesData &&
