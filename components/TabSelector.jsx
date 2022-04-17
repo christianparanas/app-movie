@@ -7,9 +7,9 @@ function TabSelector({ onClick, isActive, children }) {
       onClick={onClick}
       className={`${
         isActive
-          ? "text-slate-400 border-b border-purple-800"
-          : "text-slate-500"
-      } cursor-pointer pb-1 font-bold`}
+          ? "text-slate-100 bg-purple-700 shadow-lg"
+          : "text-slate-500 hover:bg-slate-800"
+      } cursor-pointer py-2 px-4 rounded-md font-bold mr-4 whitespace-nowrap`}
     >
       {children}
     </div>

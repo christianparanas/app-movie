@@ -16,18 +16,18 @@ function MovieList() {
     "rated",
   ]);
 
-  const { upcomingMoviesData, upcomingMoviesIsLoading, upcomingMoviesIsError } =
-    getUpcomingMovies();
-  const { popularMoviesData, popularMoviesIsLoading, popularMoviesIsError } =
-    getPopularMovies();
-  const { topRatedMoviesData, topRatedMoviesIsLoading, topRatedMoviesIsError } =
-    getTopRatedMovies();
+  const { upcomingMoviesData, upcomingMoviesIsError } = getUpcomingMovies();
+  const { popularMoviesData, popularMoviesIsError } = getPopularMovies();
+  const { topRatedMoviesData, topRatedMoviesIsError } = getTopRatedMovies();
+
+  if (upcomingMoviesIsError)
+    return <div className="">Something went wrong</div>;
 
   return (
     <div className="p-4 mt-6 md:w-10/12 mx-auto">
-      <h1 className="mr-4 text-2xl font-extrabold text-slate-50">Movies</h1>
+      <h1 className="mr-4 mb-10 text-4xl font-extrabold text-slate-50">Movies</h1>
 
-      <div className="flex border-b border-slate-900 mt-4 mb-6 gap-4 text-sm">
+      <div className="flex border-b border-slate-800 pb-4 mt-4 mb-6 text-sm overflow-x-scroll sm:overflow-hidden">
         <TabSelector
           isActive={selectedTab === "upcoming"}
           onClick={() => setSelectedTab("upcoming")}

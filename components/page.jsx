@@ -5,7 +5,7 @@ import Header from "./header";
 
 function Page({ children }) {
   return (
-    <div>
+    <div className="pt-20">
       <Header />
 
       <FadeIn>
