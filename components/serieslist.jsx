@@ -28,7 +28,7 @@ function SeriesList() {
   if(airingTodayTVSeriesData) console.log(airingTodayTVSeriesData);
 
   return (
-    <div className="p-4 mt-10 md:w-10/12 mx-auto">
+    <div className="p-4 mt-10 md:w-10/12 mx-auto h-[1731] lg:h-[774px]">
       <h1 className="mr-4 mb-10 text-4xl font-extrabold sm:text-5xl">
         <span className=" bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
           TV Series
