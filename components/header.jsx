@@ -8,7 +8,7 @@ function Header() {
 
   return (
     <div>
-      <div className="fixed top-0 w-full z-50 flex justify-between items-center py-2 px-4 bg-slate-900 text-white shadow-lg ">
+      <div className="fixed top-0 w-full z-50 flex justify-between items-center py-2 px-4 bg-slate-900 text-white border-b border-gray-800/75">
         <div className="">MovieMe</div>
         <div className="grid grid-cols-2 gap-2 items-center">
           <ThemeToggle />
