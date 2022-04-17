@@ -96,7 +96,7 @@ function MovieList() {
       {upcomingMoviesData && popularMoviesData && topRatedMoviesData && (
         <div className="flex w-full h-40 justify-center items-center">
           <Link href="/movies" passHref>
-            <a class="text-1xl font-bold py-2 px-6 rounded-lg shadow-lg text-slate-100 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500">
+            <a className="text-1xl font-bold py-2 px-6 rounded-lg shadow-lg text-slate-100 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500">
               View All
             </a>
           </Link>
