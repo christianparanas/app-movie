@@ -1,7 +1,7 @@
 import Page from "components/page";
 import MovieList from "components/movielist";
 import SeriesList from "components/serieslist";
-import Carousel from "components/carousel";
+import Carousel from "components/Carousel";
 
 export default function Home() {
   return (
