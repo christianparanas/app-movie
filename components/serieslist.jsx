@@ -1,5 +1,4 @@
-
-
+import Link from 'next/link'
 import { Fragment } from "react";
 import { TabPanel, useTabs } from "react-headless-tabs";
 
@@ -28,7 +27,7 @@ function SeriesList() {
   if(airingTodayTVSeriesData) console.log(airingTodayTVSeriesData);
 
   return (
-    <div className="p-4 mt-10 md:w-10/12 mx-auto h-[2000px] lg:h-[774px]">
+    <div className="mt-10 md:w-10/12 mx-auto h-[2000px] lg:h-[774px]">
       <h1 className="mr-4 mb-10 text-4xl font-extrabold sm:text-5xl">
         <span className=" bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
           TV Series
@@ -56,7 +55,7 @@ function SeriesList() {
         </TabSelector>
       </div>
 
-      <div className="h-fit">
+      <div className="h-fit lg:h-[571px]">
         <TabPanel hidden={selectedTab !== "latest"}>
           <div className="relative grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
             {airingTodayTVSeriesData &&
@@ -94,6 +93,14 @@ function SeriesList() {
               })}
           </div>
         </TabPanel>
+      </div>
+
+      <div className="flex w-full h-40 justify-center items-center">
+        <Link href="/tv-series" passHref>
+          <a class="text-1xl font-bold py-2 px-6 rounded-lg shadow-lg text-slate-100 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500">
+            View All
+          </a>
+        </Link>
       </div>
     </div>
   );

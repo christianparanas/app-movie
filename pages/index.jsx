@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <Page>
       
-      <div className="grid ">
+      <div className="grid gap-40">
       <MovieList />
       <SeriesList />
       </div>

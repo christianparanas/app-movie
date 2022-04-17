@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useState, Fragment } from "react";
 import { TabPanel, useTabs } from "react-headless-tabs";
 
@@ -52,7 +53,7 @@ function MovieList() {
         </TabSelector>
       </div>
 
-      <div className="min-h-fit h-fit">
+      <div className="min-h-fit h-fit lg:h-[571px]">
         <TabPanel hidden={selectedTab !== "upcoming"}>
           <div className="relative grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
             {upcomingMoviesData &&
@@ -91,6 +92,16 @@ function MovieList() {
           </div>
         </TabPanel>
       </div>
+
+      {upcomingMoviesData && popularMoviesData && topRatedMoviesData && (
+        <div className="flex w-full h-40 justify-center items-center">
+          <Link href="/movies" passHref>
+            <a class="text-1xl font-bold py-2 px-6 rounded-lg shadow-lg text-slate-100 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500">
+              View All
+            </a>
+          </Link>
+        </div>
+      )}
     </div>
   );
 }
