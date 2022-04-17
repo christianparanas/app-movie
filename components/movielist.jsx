@@ -25,7 +25,7 @@ function MovieList() {
     return <div className="">Something went wrong</div>;
 
   return (
-    <div className="p-4 mt-6 md:w-10/12 mx-auto min-h-fit lg:h-[1000px]">
+    <div className="p-4 mt-10 md:mt-20 md:w-10/12 mx-auto min-h-fit lg:h-[1000px]">
       <h1 className="mr-4 mb-10 text-4xl font-extrabold sm:text-5xl">
         <span className="text-[#7B7B8F]">
           MOVIES
@@ -55,7 +55,7 @@ function MovieList() {
 
       <div className="min-h-fit h-fit">
         <TabPanel hidden={selectedTab !== "upcoming"}>
-          <div className="relative grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+          <div className="relative grid grid-cols-1 sm:grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
             {upcomingMoviesData &&
               upcomingMoviesData.results.slice(0, 10).map((media, key) => {
                 return (

@@ -9,7 +9,7 @@ function Page({ children }) {
       <Header />
 
       <FadeIn>
-        <div className="max-w-[1500px] mx-auto">
+        <div className="w-full md:max-w-[1500px] mx-auto">
           <div className="">{children}</div>
           <div className="footer"></div>
         </div>

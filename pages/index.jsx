@@ -6,7 +6,7 @@ import Carousel from "components/Carousel";
 export default function Home() {
   return (
     <Page>
-      <div className="grid gap-40">
+      <div className="">
 
         <MovieList />
         <SeriesList />

@@ -15,7 +15,7 @@ function MediaCard({ mediaType, media }) {
         style={{ position: "relative", width: "100%", height: "350px" }}
       >
         <Image
-          className="rounded-md shadow-lg z-10 min-h-[350px]"
+          className="rounded-md shadow-lg z-10 h-[280px] sm:h-[350px]"
           src={`${TMDB_IMG_BASE_URL}${media.poster_path}`}
           placeholder="blur"
           blurDataURL="/"

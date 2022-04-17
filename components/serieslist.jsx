@@ -25,7 +25,7 @@ function SeriesList() {
   if (airingTodayTVSeriesData) console.log(airingTodayTVSeriesData);
 
   return (
-    <div className="p-4 mt-6 md:w-10/12 mx-auto min-h-fit lg:h-[1000px]">
+    <div className="p-4 mt-10 md:mt-20 md:w-10/12 mx-auto min-h-fit lg:h-[1000px]">
       <h1 className="mr-4 mb-10 text-4xl font-extrabold sm:text-5xl">
         <span className="text-[#7B7B8F]">
           TV SERIES
