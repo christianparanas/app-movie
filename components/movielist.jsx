@@ -24,7 +24,7 @@ function MovieList() {
     return <div className="">Something went wrong</div>;
 
   return (
-    <div className="p-4 mt-6 md:w-10/12 mx-auto min-h-fit h-[1731] lg:h-[774px]">
+    <div className="p-4 mt-6 md:w-10/12 mx-auto min-h-fit h-[1731px] lg:h-[774px]">
       <h1 className="mr-4 mb-10 text-4xl font-extrabold sm:text-5xl">
         <span className=" bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
           Movies
