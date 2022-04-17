@@ -1,7 +1,7 @@
 
 import Page from "../components/page";
 import MovieList from "../components/movielist";
-import SeriesList from 'components/seriesList'
+import SeriesList from 'components/serieslist'
 
 
 export default function Home() {
