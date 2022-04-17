@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from "next/link";
 import { Fragment } from "react";
 import { TabPanel, useTabs } from "react-headless-tabs";
 
@@ -11,26 +11,24 @@ import MediaCard from "./mediacard";
 import TabSelector from "./TabSelector";
 
 function SeriesList() {
-  const [selectedTab, setSelectedTab] = useTabs([
-    "latest",
-    "popular",
-    "rated",
-  ]);
+  const [selectedTab, setSelectedTab] = useTabs(["latest", "popular", "rated"]);
 
-  const { airingTodayTVSeriesData, airingTodayTVSeriesIsError } = getAiringTodayTVSeries();
+  const { airingTodayTVSeriesData, airingTodayTVSeriesIsError } =
+    getAiringTodayTVSeries();
   const { popularTVSeriesData, popularTVSeriesIsError } = getPopularTVSeries();
-  const { topRatedTVSeriesData, topRatedTVSeriesIsError } = getTopRatedTVSeries();
+  const { topRatedTVSeriesData, topRatedTVSeriesIsError } =
+    getTopRatedTVSeries();
 
   if (airingTodayTVSeriesIsError)
     return <div className="">Something went wrong</div>;
 
-  if(airingTodayTVSeriesData) console.log(airingTodayTVSeriesData);
+  if (airingTodayTVSeriesData) console.log(airingTodayTVSeriesData);
 
   return (
-    <div className="mt-10 md:w-10/12 mx-auto h-[2000px] lg:h-[774px]">
+    <div className="p-4 mt-6 md:w-10/12 mx-auto min-h-fit lg:h-[1000px]">
       <h1 className="mr-4 mb-10 text-4xl font-extrabold sm:text-5xl">
-        <span className=" bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
-          TV Series
+        <span className="text-[#7B7B8F]">
+          TV SERIES
         </span>
       </h1>
 
@@ -55,14 +53,14 @@ function SeriesList() {
         </TabSelector>
       </div>
 
-      <div className="h-fit lg:h-[571px]">
+      <div className="min-h-fit h-fit">
         <TabPanel hidden={selectedTab !== "latest"}>
-          <div className="relative grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+          <div className="relative grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {airingTodayTVSeriesData &&
-              airingTodayTVSeriesData.results.slice(0, 12).map((media, key) => {
+              airingTodayTVSeriesData.results.slice(0, 10).map((media, key) => {
                 return (
                   <Fragment key={key}>
-                    <MediaCard  mediaType="series" media={media} />
+                    <MediaCard mediaType="series" media={media} />
                   </Fragment>
                 );
               })}
@@ -70,21 +68,21 @@ function SeriesList() {
         </TabPanel>
 
         <TabPanel hidden={selectedTab !== "popular"}>
-          <div className="relative grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+          <div className="relative grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {popularTVSeriesData &&
-              popularTVSeriesData.results.slice(0, 12).map((media, key) => {
+              popularTVSeriesData.results.slice(0, 10).map((media, key) => {
                 return (
                   <Fragment key={key}>
-                    <MediaCard  mediaType="series" media={media} />
+                    <MediaCard mediaType="series" media={media} />
                   </Fragment>
                 );
               })}
           </div>
         </TabPanel>
         <TabPanel hidden={selectedTab !== "rated"}>
-          <div className="relative grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+          <div className="relative grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {topRatedTVSeriesData &&
-              topRatedTVSeriesData.results.slice(0, 12).map((media, key) => {
+              topRatedTVSeriesData.results.slice(0, 10).map((media, key) => {
                 return (
                   <Fragment key={key}>
                     <MediaCard mediaType="series" media={media} />
@@ -96,9 +94,9 @@ function SeriesList() {
       </div>
 
       <div className="flex w-full h-40 justify-center items-center">
-        <Link href="/tv-series" passHref>
-          <a className="text-1xl font-bold py-2 px-6 rounded-lg shadow-lg text-slate-100 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500">
-            View All
+        <Link href="/movies" passHref>
+          <a className="text-lg font-semibold text-slate-100 py-3 px-7 rounded-3xl bg-[#25252e] hover:bg-purple-800 hover:text-slate-200">
+            See More
           </a>
         </Link>
       </div>

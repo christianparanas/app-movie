@@ -12,17 +12,17 @@ function MediaCard({ mediaType, media }) {
     <FadeIn>
       <div
         className="cursor-pointer hover:drop-shadow-lg sm:h-72"
-        style={{ position: "relative", width: "100%", height: "280px" }}
+        style={{ position: "relative", width: "100%", height: "350px" }}
       >
         <Image
-          className="rounded-md shadow-lg z-10"
+          className="rounded-md shadow-lg z-10 min-h-[350px]"
           src={`${TMDB_IMG_BASE_URL}${media.poster_path}`}
           placeholder="blur"
           blurDataURL="/"
           layout="fill"
           objectFit="cover"
         />
-        <div className="absolute z-20 h-full w-full bg-gradient-to-b from-transparent to-slate-900/90"></div>
+        <div className="absolute z-20 h-full w-full bg-gradient-to-b from-transparent to-[#1a1a21]/90"></div>
 
         <div className="absolute bottom-0 w-full p-2 z-30 text-slate-100">
           <h3 className="font-bold mb-2">

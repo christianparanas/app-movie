@@ -2,13 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
+
 * {
   -webkit-tap-highlight-color: transparent;
+  font-family: 'Sora', sans-serif;
 }
 
 @layer components {
   body {
-    @apply bg-slate-900;
+    @apply bg-[#1a1a21];
   }
 }
 

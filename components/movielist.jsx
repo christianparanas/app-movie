@@ -25,10 +25,10 @@ function MovieList() {
     return <div className="">Something went wrong</div>;
 
   return (
-    <div className="p-4 mt-6 md:w-10/12 mx-auto min-h-fit h-[2000px] lg:h-[774px]">
+    <div className="p-4 mt-6 md:w-10/12 mx-auto min-h-fit lg:h-[1000px]">
       <h1 className="mr-4 mb-10 text-4xl font-extrabold sm:text-5xl">
-        <span className=" bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
-          Movies
+        <span className="text-[#7B7B8F]">
+          MOVIES
         </span>
       </h1>
 
@@ -53,11 +53,11 @@ function MovieList() {
         </TabSelector>
       </div>
 
-      <div className="min-h-fit h-fit lg:h-[571px]">
+      <div className="min-h-fit h-fit">
         <TabPanel hidden={selectedTab !== "upcoming"}>
-          <div className="relative grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+          <div className="relative grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {upcomingMoviesData &&
-              upcomingMoviesData.results.slice(0, 12).map((media, key) => {
+              upcomingMoviesData.results.slice(0, 10).map((media, key) => {
                 return (
                   <Fragment key={key}>
                     <MediaCard mediaType="movies" media={media} />
@@ -68,9 +68,9 @@ function MovieList() {
         </TabPanel>
 
         <TabPanel hidden={selectedTab !== "popular"}>
-          <div className="relative grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+          <div className="relative grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {popularMoviesData &&
-              popularMoviesData.results.slice(0, 12).map((media, key) => {
+              popularMoviesData.results.slice(0, 10).map((media, key) => {
                 return (
                   <Fragment key={key}>
                     <MediaCard mediaType="movies" media={media} />
@@ -80,9 +80,9 @@ function MovieList() {
           </div>
         </TabPanel>
         <TabPanel hidden={selectedTab !== "rated"}>
-          <div className="relative grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+          <div className="relative grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {topRatedMoviesData &&
-              topRatedMoviesData.results.slice(0, 12).map((media, key) => {
+              topRatedMoviesData.results.slice(0, 10).map((media, key) => {
                 return (
                   <Fragment key={key}>
                     <MediaCard mediaType="movies" media={media} />
@@ -96,8 +96,8 @@ function MovieList() {
       {upcomingMoviesData && popularMoviesData && topRatedMoviesData && (
         <div className="flex w-full h-40 justify-center items-center">
           <Link href="/movies" passHref>
-            <a className="text-1xl font-bold py-2 px-6 rounded-lg shadow-lg text-slate-100 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500">
-              View All
+            <a className="text-lg font-semibold text-slate-100 py-3 px-7 rounded-3xl bg-[#25252e] hover:bg-purple-800 hover:text-slate-200">
+              See More
             </a>
           </Link>
         </div>

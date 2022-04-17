@@ -1,15 +1,14 @@
 import React from "react";
 
 function TabSelector({ onClick, isActive, children }) {
-
   return (
     <div
       onClick={onClick}
-      className={`${
+      className={`cursor-pointer text-lg font-semibold py-3 px-7 rounded-3xl mr-4 whitespace-nowrap ${
         isActive
           ? "text-slate-100 bg-purple-700 shadow-lg"
-          : "text-slate-500 hover:bg-slate-800"
-      } cursor-pointer py-2 px-4 rounded-md font-bold mr-4 whitespace-nowrap`}
+          : "text-slate-500 hover:bg-[#25252e]"
+      } `}
     >
       {children}
     </div>
