@@ -1,15 +1,36 @@
-import React, { useState } from "react";
-import Link from 'next/link'
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { Squeeze as Hamburger } from "hamburger-react";
 
 import ThemeToggle from "./ThemeToggle";
 
 function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isScrolling, setIsScrolling] = useState(false);
+
+  const onScroll = () => {
+    if (window.pageYOffset > 240) return setIsScrolling(true);
+
+    setIsScrolling(false);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
 
   return (
     <div>
-      <div className="fixed top-0 w-full z-50 flex justify-between items-center py-2 px-4 bg-[#1a1a21] text-white border-b border-gray-800/75 md:py-5 md:px-10">
+      <div
+        className={`fixed top-0 w-full z-50 flex justify-between items-center py-2 px-4  text-white md:py-5 md:px-10 ${
+          isScrolling
+            ? "bg-[#1a1a21] border-b border-slate-800"
+            : "bg-gradient-to-b from-[#1a1a21] to-trasnparent"
+        }`}
+      >
         <h1 className="text-2xl font-extrabold sm:text-2xl">
           <span className="text-[#7B7B8F] cursor-pointer">TMDB</span>
         </h1>
@@ -20,9 +41,15 @@ function Header() {
         </div>
 
         <div className="hidden lg:flex font-extrabold text-slate-300 items-center">
-          <div className="mr-4 cursor-pointer hover:text-slate-100">TOP TV SERIES</div>
-          <div className="mr-4 cursor-pointer hover:text-slate-100">TOP MOVIES</div>
-          <div className="mr-4 cursor-pointer hover:text-slate-100">UPCOMING</div>
+          <div className="mr-4 cursor-pointer hover:text-slate-100">
+            TOP TV SERIES
+          </div>
+          <div className="mr-4 cursor-pointer hover:text-slate-100">
+            TOP MOVIES
+          </div>
+          <div className="mr-4 cursor-pointer hover:text-slate-100">
+            UPCOMING
+          </div>
           <div className="mr-4 cursor-pointer hover:text-slate-100">ANIME</div>
           <div className="cursor-pointer hover:text-slate-100">SEARCH</div>
         </div>

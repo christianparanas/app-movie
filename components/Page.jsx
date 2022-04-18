@@ -5,11 +5,11 @@ import { Header } from "components";
 
 function Page({ children }) {
   return (
-    <div className="pt-20">
+    <div className="">
       <Header />
 
       <FadeIn>
-        <div className="w-full md:max-w-[1500px] mx-auto">
+        <div className="w-full mx-auto">
           <div className="">{children}</div>
           <div className="footer"></div>
         </div>

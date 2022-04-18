@@ -1,12 +1,11 @@
-import { Page, MovieList, SeriesList } from "components";
+import { Page, MovieList, SeriesList, Carousel } from "components";
 
 export default function Home() {
   return (
     <Page>
-      <div className="">
+        <Carousel />
         <MovieList />
         <SeriesList />
-      </div>
     </Page>
   );
 }

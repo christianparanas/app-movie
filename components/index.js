@@ -7,3 +7,4 @@ export { default as MovieList } from "./MovieList";
 export { default as Carousel } from "./Carousel";
 export { default as TabSelector } from "./TabSelector";
 export { default as ThemeToggle } from "./ThemeToggle";
+export { default as CarouselCard } from "./CarouselCard"

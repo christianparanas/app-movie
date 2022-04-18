@@ -22,8 +22,6 @@ function SeriesList() {
   if (airingTodayTVSeriesIsError)
     return <div className="">Something went wrong</div>;
 
-  if (airingTodayTVSeriesData) console.log(airingTodayTVSeriesData);
-
   return (
     <div className="p-4 mt-10 mx-auto min-h-fit h-p[2159px] md:mt-20 md:w-10/12 lg:h-[1000px]">
       <h1 className="mr-4 mb-10 text-xl lg:text-3xl font-extrabold sm:text-5xl">
