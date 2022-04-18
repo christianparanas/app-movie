@@ -2,25 +2,10 @@ import Link from "next/link";
 import { Fragment } from "react";
 import { TabPanel, useTabs } from "react-headless-tabs";
 
-import {
-  getAiringTodayTVSeries,
-  getPopularTVSeries,
-  getTopRatedTVSeries,
-} from "lib/tmdb";
 import { MediaCard, TabSelector } from "components";
 
-
-function SeriesList() {
+function SeriesList({ series }) {
   const [selectedTab, setSelectedTab] = useTabs(["latest", "popular", "rated"]);
-
-  const { airingTodayTVSeriesData, airingTodayTVSeriesIsError } =
-    getAiringTodayTVSeries();
-  const { popularTVSeriesData, popularTVSeriesIsError } = getPopularTVSeries();
-  const { topRatedTVSeriesData, topRatedTVSeriesIsError } =
-    getTopRatedTVSeries();
-
-  if (airingTodayTVSeriesIsError)
-    return <div className="">Something went wrong</div>;
 
   return (
     <div className="p-4 mt-10 mx-auto min-h-fit h-p[2159px] md:mt-20 md:w-10/12 lg:h-[1000px]">
@@ -52,21 +37,23 @@ function SeriesList() {
       <div className="min-h-fit h-[1814px] lg:h-[716px]">
         <TabPanel hidden={selectedTab !== "latest"}>
           <div className="relative grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-            {airingTodayTVSeriesData &&
-              airingTodayTVSeriesData.results.slice(0, 10).map((media, key) => {
-                return (
-                  <Fragment key={key}>
-                    <MediaCard mediaType="series" media={media} />
-                  </Fragment>
-                );
-              })}
+            {series &&
+              series.airingTodayTVSeries.results
+                .slice(0, 10)
+                .map((media, key) => {
+                  return (
+                    <Fragment key={key}>
+                      <MediaCard mediaType="series" media={media} />
+                    </Fragment>
+                  );
+                })}
           </div>
         </TabPanel>
 
         <TabPanel hidden={selectedTab !== "popular"}>
           <div className="relative grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-            {popularTVSeriesData &&
-              popularTVSeriesData.results.slice(0, 10).map((media, key) => {
+            {series &&
+              series.popularTVSeries.results.slice(0, 10).map((media, key) => {
                 return (
                   <Fragment key={key}>
                     <MediaCard mediaType="series" media={media} />
@@ -77,8 +64,8 @@ function SeriesList() {
         </TabPanel>
         <TabPanel hidden={selectedTab !== "rated"}>
           <div className="relative grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-            {topRatedTVSeriesData &&
-              topRatedTVSeriesData.results.slice(0, 10).map((media, key) => {
+            {series &&
+              series.topRatedTVSeries.results.slice(0, 10).map((media, key) => {
                 return (
                   <Fragment key={key}>
                     <MediaCard mediaType="series" media={media} />
