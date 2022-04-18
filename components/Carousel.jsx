@@ -10,7 +10,7 @@ export default function Carousel({ trending }) {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 400,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
@@ -18,7 +18,7 @@ export default function Carousel({ trending }) {
   };
 
   return (
-    <div className="w-full lg:min-h-screen mx-auto">
+    <div className="w-full lg:min-h-screen mx-auto pt-16 md:pt-0">
       <Slider {...settings}>
         {trending &&
           trending.results
