@@ -25,7 +25,7 @@ function Header() {
   return (
     <div>
       <div
-        className={`fixed top-0 w-full z-50 flex justify-between items-center py-2 px-4  text-white md:py-5 md:px-10 ${
+        className={`fixed top-0 w-full z-[101] flex justify-between items-center py-2 px-4  text-white md:py-5 md:px-10 ${
           isScrolling
             ? "bg-[#1a1a21] border-b border-slate-800"
             : "bg-gradient-to-b from-[#1a1a21] to-trasnparent"
