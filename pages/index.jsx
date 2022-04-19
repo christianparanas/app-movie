@@ -1,4 +1,5 @@
 import { Page, MovieList, SeriesList, Carousel } from "components";
+import { useSelector, useDispatch } from "react-redux";
 
 import {
   getUpcomingMovies,
