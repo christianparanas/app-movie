@@ -4,7 +4,6 @@ const TMDB_IMG_BASE_URL = "https://image.tmdb.org/t/p/original";
 import { getGenre } from "util/getGenre";
 
 export default function CarouselCard({ data }) {
-  console.log(data);
 
   return (
     <div className="relative h-96 lg:min-h-screen overflow-hidden">
