@@ -40,7 +40,7 @@ export default function Movie() {
             <div className="p-4 mt-10">
               <div className="grid md:grid-cols-[350px_1fr] gap-[40px] md:gap-[80px]">
                 <img
-                  className="z-[100] w-[200px] mx-auto md:w-[350px] shadow-lg rounded-lg"
+                  className="z-[100] min-h-[300px] w-[200px] mx-auto md:w-[350px] shadow-lg rounded-lg"
                   src={`${TMDB_IMG_BASE_URL}${movieData.poster_path}`}
                   alt=""
                 />
