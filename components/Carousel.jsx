@@ -18,7 +18,7 @@ export default function Carousel({ trending }) {
   };
 
   return (
-    <div className="w-full lg:min-h-screen mx-auto pt-16 md:pt-0">
+    <div className="w-full h-96 lg:min-h-screen mx-auto pt-16 md:pt-0 mb-40">
       <Slider {...settings}>
         {trending &&
           trending.results
