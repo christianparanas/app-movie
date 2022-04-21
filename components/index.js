@@ -11,3 +11,6 @@ export { default as CarouselCard } from "./CarouselCard"
 export { default as PersonCard } from "./PersonCard"
 export { default as MovieHero } from "./MovieHero"
 export { default as ImagesTrailerWrapper } from "./ImagesTrailerWrapper"
+export { default as SimilarMediaList } from "./SimilarMediaList"
+export { default as CreditsList } from "./CreditsList"
+

@@ -23,11 +23,17 @@ export default function ImagesTrailerWrapper({ movieImages, movieVideos }) {
       <div className="videos">
         <h3 className="text-slate-100 text-xl font-bold mb-4">Trailer</h3>
         {movieVideos && (
-          <ReactPlayer
-            className="shadow-lg"
-            url={`https://www.youtube.com/embed/${movieVideos.results[0].key}`}
-            width="100%"
-          />
+          <div className="">
+            {movieVideos.results.length != 0 ? (
+              <ReactPlayer
+                className="shadow-lg"
+                url={`https://www.youtube.com/embed/${movieVideos.results[0].key}`}
+                width="100%"
+              />
+            ) : (
+              <div className="text-slate-100 text-xl font-bold h-[360px] grid place-content-center m-0">Trailer not available.</div>
+            )}
+          </div>
         )}
       </div>
       <div className="">

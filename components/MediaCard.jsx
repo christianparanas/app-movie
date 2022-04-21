@@ -24,11 +24,10 @@ function MediaCard({ mediaType, media }) {
         passHref
       >
         <div
-          className="cursor-pointer hover:drop-shadow-lg sm:h-72"
-          style={{ position: "relative", width: "100%", height: "350px" }}
+          className="relative cursor-pointer hover:drop-shadow-lg min-w-[150px] w-full h-[350px]"
         >
           <Image
-            className="rounded-md shadow-lg z-10 h-[280px] sm:h-[350px]"
+            className="rounded-md shadow-lg z-10 w-full h-[280px] sm:h-[350px]"
             src={media.poster_path == null ? "/placeholder.svg" : src}
             placeholder="blur"
             blurDataURL="/placeholder.svg"
