@@ -12,6 +12,7 @@ import { CalendarIcon } from "components/graphics";
 const TMDB_IMG_BASE_URL = "https://image.tmdb.org/t/p/w342";
 
 function MediaCard({ mediaType, media }) {
+  console.log(media)
 
   return (
     <FadeIn>

@@ -31,9 +31,11 @@ function Header() {
             : "bg-gradient-to-b from-[#1a1a21] to-trasnparent"
         }`}
       >
-        <h1 className="text-2xl font-extrabold sm:text-2xl">
-          <span className="text-[#7B7B8F] cursor-pointer">TMDB</span>
-        </h1>
+        <Link href="/">
+          <h1 className="text-2xl font-extrabold sm:text-2xl">
+            <span className="text-[#7B7B8F] cursor-pointer">TMDB</span>
+          </h1>
+        </Link>
 
         <div className="grid grid-cols-2 gap-2 items-center lg:hidden">
           <ThemeToggle />
