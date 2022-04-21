@@ -22,9 +22,9 @@ export default function PersonCard({ personType, person }) {
       />
       <div className="text-white p-2 text-sm">
         <div className="">{person.name}</div>
-        <div className="">
+        <div className="text-xs">
           {personType == "cast" ? (
-            <div className="">as {person.character}</div>
+            <div className="">as {person.character.length > 10 ? `${person.character.substring(0, 25)} ...` : person.character }</div>
           ) : (
             <div className="">- {person.job}</div>
           )}

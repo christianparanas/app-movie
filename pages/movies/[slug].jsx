@@ -65,23 +65,31 @@ export default function Movie() {
                 {movieCredits && (
                   <Fragment>
                     <div className="">
-                      <h2 className="text-3xl font-bold text-slate-200 mb-4">Cast</h2>
-                      <div className="flex overflow-x-scroll">
+                      <h2 className="text-3xl font-bold text-slate-200 mb-4">
+                        Cast
+                      </h2>
+                      <div className="flex overflow-x-scroll pb-4">
                         {movieCredits.cast.map((person, key) => (
-                          <Fragment key={key}>
-                            <PersonCard personType="cast" person={person} />
-                          </Fragment>
+                          <PersonCard
+                            key={key}
+                            personType="cast"
+                            person={person}
+                          />
                         ))}
                       </div>
                     </div>
 
                     <div className="">
-                      <h2 className="text-3xl font-bold text-slate-200 mb-4">Crew</h2>
+                      <h2 className="text-3xl font-bold text-slate-200 mb-4">
+                        Crew
+                      </h2>
                       <div className="flex overflow-x-scroll pb-4">
                         {movieCredits.crew.map((person, key) => (
-                          <Fragment key={key}>
-                            <PersonCard personType="crew" person={person} />
-                          </Fragment>
+                          <PersonCard
+                            key={key}
+                            personType="crew"
+                            person={person}
+                          />
                         ))}
                       </div>
                     </div>
