@@ -13,5 +13,33 @@
   body {
     @apply bg-[#1a1a21];
   }
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    @apply bg-[#25252e];
+
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    @apply bg-[#1a1a21] border-4 border-solid border-[#25252e];
+    border-radius: 100vh;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-[#1a1a21];
+  }
 }
+
+
+
+
 

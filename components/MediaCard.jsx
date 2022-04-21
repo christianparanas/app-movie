@@ -27,7 +27,7 @@ function MediaCard({ mediaType, media }) {
             className="rounded-md shadow-lg z-10 h-[280px] sm:h-[350px]"
             src={`${TMDB_IMG_BASE_URL}${media.poster_path}`}
             placeholder="blur"
-            blurDataURL="/"
+            blurDataURL="/public/vercel.svg"
             layout="fill"
             objectFit="cover"
           />

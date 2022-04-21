@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 const TMDB_IMG_BASE_URL = "https://image.tmdb.org/t/p/original";
 
-import { Page } from "components";
-import { getMovie, getMovieVideos, getMovieImages } from "lib/tmdb";
-
-import MovieHero from "components/MovieHero";
-import ImagesTrailerWrapper from "components/ImagesTrailerWrapper";
+import { Page, MovieHero, ImagesTrailerWrapper, PersonCard } from "components";
+import {
+  getMovie,
+  getMovieVideos,
+  getMovieImages,
+  getMovieCredits,
+} from "lib/tmdb";
 
 export default function Movie() {
   const router = useRouter();
@@ -15,15 +17,18 @@ export default function Movie() {
   const [movieData, setMovieData] = useState(false);
   const [movieVideos, setMovieVideos] = useState(false);
   const [movieImages, setMovieImages] = useState(false);
+  const [movieCredits, setMovieCredits] = useState(false);
 
   const fetchDatas = async (id) => {
     const movieData = await getMovie(id);
     const movieVideos = await getMovieVideos(id);
     const movieImages = await getMovieImages(id);
+    const movieCredits = await getMovieCredits(id);
 
     setMovieVideos(movieVideos);
     setMovieData(movieData);
     setMovieImages(movieImages);
+    setMovieCredits(movieCredits);
   };
 
   useEffect(() => {
@@ -31,6 +36,8 @@ export default function Movie() {
 
     fetchDatas(slug);
   }, [slug]);
+
+  if (movieCredits) console.log(movieCredits);
 
   return (
     <Page>
@@ -47,10 +54,41 @@ export default function Movie() {
         {movieData && (
           <React.Fragment>
             <MovieHero movieData={movieData} />
-            <ImagesTrailerWrapper
-              movieImages={movieImages}
-              movieVideos={movieVideos}
-            />
+
+            <div className="p-4">
+              <ImagesTrailerWrapper
+                movieImages={movieImages}
+                movieVideos={movieVideos}
+              />
+
+              <div className="md:w-[1200px] mb-20 rounded-lg mx-auto grid grid-cols-1 gap-20">
+                {movieCredits && (
+                  <Fragment>
+                    <div className="">
+                      <h2 className="text-3xl font-bold text-slate-200 mb-4">Cast</h2>
+                      <div className="flex overflow-x-scroll">
+                        {movieCredits.cast.map((person, key) => (
+                          <Fragment key={key}>
+                            <PersonCard personType="cast" person={person} />
+                          </Fragment>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="">
+                      <h2 className="text-3xl font-bold text-slate-200 mb-4">Crew</h2>
+                      <div className="flex overflow-x-scroll pb-4">
+                        {movieCredits.crew.map((person, key) => (
+                          <Fragment key={key}>
+                            <PersonCard personType="crew" person={person} />
+                          </Fragment>
+                        ))}
+                      </div>
+                    </div>
+                  </Fragment>
+                )}
+              </div>
+            </div>
           </React.Fragment>
         )}
       </div>

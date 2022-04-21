@@ -8,3 +8,6 @@ export { default as Carousel } from "./Carousel";
 export { default as TabSelector } from "./TabSelector";
 export { default as ThemeToggle } from "./ThemeToggle";
 export { default as CarouselCard } from "./CarouselCard"
+export { default as PersonCard } from "./PersonCard"
+export { default as MovieHero } from "./MovieHero"
+export { default as ImagesTrailerWrapper } from "./ImagesTrailerWrapper"
