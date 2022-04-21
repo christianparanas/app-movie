@@ -1,6 +1,7 @@
 import Image from "next/image";
 import FadeIn from "react-fade-in";
 import Link from "next/link";
+import React from 'react'
 
 // utils
 import { getGenre } from "util/getGenre";
@@ -12,7 +13,9 @@ import { CalendarIcon } from "components/graphics";
 const TMDB_IMG_BASE_URL = "https://image.tmdb.org/t/p/w342";
 
 function MediaCard({ mediaType, media }) {
-  console.log(media)
+  const [src, setSrc] = React.useState(
+    `${TMDB_IMG_BASE_URL}${media.poster_path}`
+  );
 
   return (
     <FadeIn>
@@ -26,9 +29,9 @@ function MediaCard({ mediaType, media }) {
         >
           <Image
             className="rounded-md shadow-lg z-10 h-[280px] sm:h-[350px]"
-            src={`${TMDB_IMG_BASE_URL}${media.poster_path}`}
+            src={media.poster_path == null ? "/placeholder.svg" : src}
             placeholder="blur"
-            blurDataURL="/public/vercel.svg"
+            blurDataURL="/placeholder.svg"
             layout="fill"
             objectFit="cover"
           />
