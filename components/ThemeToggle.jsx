@@ -14,7 +14,7 @@ function ThemeToggle() {
   return (
     <div
       onClick={changeTheme}
-      className="flex mx-auto items-center bg-slate-800 w-fit p-2 rounded-lg cursor-pointer"
+      className="flex mx-auto items-center bg-[#25252e] w-fit p-2 rounded-lg cursor-pointer"
     >
       {isDarkMode ? <SunIcon /> : <MoonIcon />}
     </div>

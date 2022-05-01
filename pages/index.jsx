@@ -10,11 +10,14 @@ import {
   getTopRatedTVSeries,
   getTrendingMedia,
 } from "lib/tmdb";
+import Search from "components/Search";
 
 export default function Home({ trendingMedia, movies, series }) {
   return (
     <Page>
+      <Search />
       <Carousel trending={trendingMedia} />
+      
       <MovieList movies={movies} />
       <SeriesList series={series} />
     </Page>
