@@ -4,6 +4,7 @@ import { MediaCard } from "components";
 
 
 export default function SimilarMediaList({ similarMovies }) {
+
   return (
     <div className="md:w-[1200px] mb-20 rounded-lg mx-auto">
       {similarMovies && (
@@ -12,8 +13,8 @@ export default function SimilarMediaList({ similarMovies }) {
             Similar Movies
           </h2>
           <div className="relative flex overflow-x-auto pb-4">
-            {similarMovies.results.map((movie, key) => (
-              <div className="relative mr-4 min-w-[200px] bg-black" key={key}>
+            {similarMovies.results.map((movie) => (
+              <div className="relative mr-4 min-w-[200px] bg-black" key={movie.id}>
                 <MediaCard mediaType="movies" media={movie} />
               </div>
             ))}

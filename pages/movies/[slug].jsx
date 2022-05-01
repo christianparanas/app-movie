@@ -46,9 +46,7 @@ export default function Movie() {
     if (!slug) return;
 
     fetchDatas(slug);
-  }, [slug]);
-
-  if (similarMovies) console.log(similarMovies);
+  }, [router.query.slug]);
 
   return (
     <Page>
