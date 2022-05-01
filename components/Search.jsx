@@ -21,29 +21,6 @@ export default function Search() {
     setQueryResults(data?.results);
   }
 
-  function restructMediaData(media) {
-    if (media.media_type == "person") {
-      return {
-        img: media.profile_path,
-        name: media.name,
-      };
-    }
-
-    if (media.media_type == "movie") {
-      return {
-        img: media.poster_path,
-        name: media.title,
-      };
-    }
-
-    if (media.media_type == "tv") {
-      return {
-        img: media.poster_path,
-        name: media.name,
-      };
-    }
-  }
-
   return (
     <div className="w-full mt-20 mb-3 p-4  md:hidden">
       <form action="" className="relative">
@@ -78,38 +55,71 @@ export default function Search() {
       </form>
 
       {query && (
-        <div className="absolute z-[100] bg-[#25252e] mt-2 p-2 rounded-lg shadow-lg w-[calc(100%-32px)] max-h-[300px] overflow-y-scroll">
-          <div className="grid gap-1">
-            {queryResults &&
-              queryResults.map((result) => {
-                const filtered = restructMediaData(result);
-
-                return (
-                  <div
-                    className="flex bg-[#1a1a21] p-1 items-center rounded-lg"
-                    key={result.id}
-                  >
-                    <Image
-                      className="w-[30px] h-[45px] mr-3 rounded-lg"
-                      src={`${TMDB_IMG_BASE_URL}${filtered.img}`}
-                      alt=""
-                      height={45}
-                      width={30}
-                      placeholder="blur"
-                      blurDataURL="/"
-                      objectFit="cover"
-                    />
-                    <div className="ml-4">
-                      <div className="text-slate-50 text-sm">
-                        {filtered.name}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-          </div>
+        <div className="absolute z-[100] w-[calc(100%-32px)] bg-[#25252e] mt-2 p-2 rounded-lg shadow-lg">
+          {queryResults.length === 0 ? (
+            <div className="text-sm text-center text-slate-200 my-4">No Result</div>
+          ) : (
+            <SearchResult queryResults={queryResults} />
+          )}
         </div>
       )}
+    </div>
+  );
+}
+
+export function SearchResult({ queryResults }) {
+  function restructMediaData(media) {
+    if (media.media_type == "person") {
+      return {
+        img: media.profile_path,
+        name: media.name,
+      };
+    }
+
+    if (media.media_type == "movie") {
+      return {
+        img: media.poster_path,
+        name: media.title,
+      };
+    }
+
+    if (media.media_type == "tv") {
+      return {
+        img: media.poster_path,
+        name: media.name,
+      };
+    }
+  }
+
+  return (
+    <div className="bg-[#25252e] rounded-lg shadow-lg max-h-[300px] overflow-y-scroll">
+      <div className="grid gap-1">
+        {queryResults &&
+          queryResults.map((result) => {
+            const filtered = restructMediaData(result);
+
+            return (
+              <div
+                className="flex bg-[#1a1a21] p-1 items-center rounded-lg"
+                key={result.id}
+              >
+                <Image
+                  className="w-[30px] h-[45px] mr-3 rounded-lg"
+                  src={`${TMDB_IMG_BASE_URL}${filtered.img}`}
+                  alt=""
+                  height={45}
+                  width={30}
+                  placeholder="blur"
+                  blurDataURL="/"
+                  objectFit="cover"
+                />
+                <div className="ml-4">
+                  <div className="text-slate-50 text-sm">{filtered.name}</div>
+                </div>
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 }
