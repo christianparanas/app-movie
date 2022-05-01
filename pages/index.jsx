@@ -49,5 +49,6 @@ export async function getStaticProps() {
         topRatedTVSeries,
       },
     },
+    revalidate: 1,
   };
 }
