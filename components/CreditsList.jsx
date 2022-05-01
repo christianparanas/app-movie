@@ -23,7 +23,7 @@ export default function CreditsList({ movieCredits }) {
             <h2 className="text-3xl font-bold text-slate-200 mb-4">Crew</h2>
             <div className="flex overflow-x-auto pb-4">
               {movieCredits.crew.map((person, key) => (
-                <PersonCard key={key} personType="crew" person={person} />
+                <PersonCard key={person.id} personType="crew" person={person} />
               ))}
             </div>
           </div>
